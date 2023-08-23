@@ -8,7 +8,6 @@ import ncg_svg as svg
 if __name__ == '__main__':
     comp_path = os.environ['COMP_REPO']
     comp_dir = os.listdir(comp_path)
-    print(comp_path)   
     with open('../templates/raw/input.yml', 'r') as f:
         output = yaml.safe_load(f)
 
