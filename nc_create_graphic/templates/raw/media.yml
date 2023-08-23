@@ -1,0 +1,32 @@
+id: "95318b00-36fa-11ee-996c-e78d54c924bb"
+type: "graphic"
+subtype: ""
+metadata:
+  media-not-started: "false"
+title: ""
+transcript: ""
+assets:
+  - "c10aa560-37b6-11ee-a186-7f8362ce574a"
+  - "c10af380-37b6-11ee-a186-7f8362ce574a"
+  - "c10b1a90-37b6-11ee-a186-7f8362ce574a"
+  - "c10b41a0-37b6-11ee-a186-7f8362ce574a"
+  - "c10b68b0-37b6-11ee-a186-7f8362ce574a"
+  - "c10b8fc0-37b6-11ee-a186-7f8362ce574a"
+  - "c10bb6d0-37b6-11ee-a186-7f8362ce574a"
+  - "c10bb6d1-37b6-11ee-a186-7f8362ce574a"
+  - "c10cc840-37b6-11ee-a186-7f8362ce574a"
+ui:
+  instructions: ""
+  images: []
+  svgs:
+    - caption: ""
+      text1: "c10aa560-37b6-11ee-a186-7f8362ce574a"
+      text2: "c10af380-37b6-11ee-a186-7f8362ce574a"
+      text3: "c10b1a90-37b6-11ee-a186-7f8362ce574a"
+      text4: "c10b41a0-37b6-11ee-a186-7f8362ce574a"
+      text5: "c10b68b0-37b6-11ee-a186-7f8362ce574a"
+      text6: "c10b8fc0-37b6-11ee-a186-7f8362ce574a"
+      text7: "c10bb6d0-37b6-11ee-a186-7f8362ce574a"
+      file: "c10bb6d1-37b6-11ee-a186-7f8362ce574a"
+  ratio: "822/861"
+  stylesheet: "c10cc840-37b6-11ee-a186-7f8362ce574a"

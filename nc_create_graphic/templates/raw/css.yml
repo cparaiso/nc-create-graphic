@@ -1,0 +1,23 @@
+id: "c10cc840-37b6-11ee-a186-7f8362ce574a"
+metadata: {}
+common: false
+type: "file"
+file: "c10cc840-37b6-11ee-a186-7f8362ce574a.css"
+subtype: "css"
+textFields:
+  - type: "text"
+    content: "Analytics Process"
+    attributes:
+      type: "TEXT"
+      compId: "ID_txt06"
+      x: "0"
+      y: "0"
+      width: "200"
+      expand: "up+down"
+      align: "left"
+      class: "orangeCallOut"
+      size: "22"
+    cssId: "text1"
+    id: "c10aa560-37b6-11ee-a186-7f8362ce574a"
+images: []
+containerId: "95318b00-36fa-11ee-996c-e78d54c924bb"

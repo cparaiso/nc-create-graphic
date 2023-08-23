@@ -1,0 +1,5 @@
+type: "graphic"
+textFields:
+  - text: "moo"
+  - text: "foo"
+  - text: "boo"
