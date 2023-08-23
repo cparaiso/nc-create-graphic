@@ -15,4 +15,3 @@ if __name__ == '__main__':
     media = asset.media_create()
     media = asset.media_insert_text_field(text_fields, media)
     media = asset.media_insert_css(text_fields, media)
-    print(media)
