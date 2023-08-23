@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 import yaml
-import ncg_asset as text_field
+import ncg_asset as asset
 import ncg_svg as svg
 # from uuid import uuid1
 
@@ -11,5 +11,8 @@ if __name__ == '__main__':
     with open('../templates/raw/input.yml', 'r') as f:
         output = yaml.safe_load(f)
 
-    text_fields = text_field.process_text_fields(output['textFields'])
-    svg.process_svg(output)
+    text_fields = asset.process_text_fields(output['textFields'])
+    media = asset.media_create()
+    media = asset.media_insert_text_field(text_fields, media)
+    media = asset.media_insert_css(text_fields, media)
+    print(media)
