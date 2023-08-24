@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Tuple
 from uuid import uuid1
 import os
 from ruamel.yaml import YAML
@@ -22,26 +22,25 @@ def process_text_fields(text_fields: List) -> List[Dict]:
 
     return fields_uuids
 
-def media_insert_text_field(fields: List[Dict], media: Dict) -> Dict:
+def media_insert_text_field(fields: List[Dict]) -> Tuple:
     assets = []
-
+    ui = {} 
     for field in fields:
         double_quoted_scalar = DoubleQuotedScalarString(field['uuid'])
         assets.append(double_quoted_scalar)
-        media['ui']['svgs'][0][f"text{field['index']}"] = double_quoted_scalar 
+        ui[f"text{field['index']}"] = double_quoted_scalar 
     
-    media['assets'] = assets
 
-    return media
+    return (assets, ui)
 
-def media_insert_css(fields: List[Dict], media: Dict) -> Dict:
+def media_insert_css(fields: List[Dict], media_id: str) -> Tuple:
     text_fields = []
     with open('../templates/css.yml', 'r') as f:
         css_yml = yaml.load(f)
 
     css_yml['id'] = str(uuid1())
     css_yml['file'] = f"{css_yml['id']}.css"
-    css_yml['containerId'] = media['id']
+    css_yml['containerId'] = media_id 
 
     for field in fields:
         css_text_field = {
@@ -63,8 +62,7 @@ def media_insert_css(fields: List[Dict], media: Dict) -> Dict:
 
     __create_fd_css(css_yml)
 
-    media['stylesheet'] = css_yml['id']
-    return media   
+    return css_yml['id']   
 
 def media_create() -> Dict:
     with open('../templates/media.yml', 'r') as f:
