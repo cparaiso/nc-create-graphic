@@ -1,10 +1,10 @@
 from typing import Dict, List
-import yaml
 from uuid import uuid1
 import os
+from ruamel.yaml import YAML
 
 COMP_PATH = os.environ['COMP_REPO']
-                       
+yaml = YAML()                       
 def process_text_fields(text_fields: List) -> List[Dict]:
     '''
     process text fields 
@@ -34,7 +34,7 @@ def media_insert_text_field(fields: List[Dict], media: Dict) -> Dict:
 def media_insert_css(fields: List[Dict], media: Dict) -> Dict:
     text_fields = []
     with open('../templates/css.yml', 'r') as f:
-        css_yml = yaml.safe_load(f)
+        css_yml = yaml.load(f)
 
     css_yml['id'] = str(uuid1())
     css_yml['file'] = f"{css_yml['id']}.css"
@@ -65,7 +65,7 @@ def media_insert_css(fields: List[Dict], media: Dict) -> Dict:
 
 def media_create() -> Dict:
     with open('../templates/media.yml', 'r') as f:
-        media = yaml.safe_load(f)
+        media = yaml.load(f)
 
     media['id'] = str(uuid1())
 
@@ -77,7 +77,7 @@ def __create_fd_text_fields(text_field: Dict) -> None:
     '''
 
     with open('../templates/text.yml', 'r') as f:
-        text_yml = yaml.safe_load(f)
+        text_yml = yaml.load(f)
 
     text_yml['id'] = text_field['uuid']
     text_yml['file'] = f"{text_field['uuid']}.md"
@@ -106,5 +106,20 @@ def __create_fd_css(css: Dict) -> None:
         yaml.dump(css, f)
 
     with open(f"{dir}/{css['file']}", 'w') as f:
-        f.write('')
+        newline = '\n'
+        text_fields = css['textFields']
+        for field in text_fields:
+            attrs = field['attributes']
+            f.write(f'''[id="{css['containerId']}"] [id="{field['cssId']}"] {{ top: {attrs['y']}; left: {attrs['x']};size: {attrs['size']}; }}{newline}''')
+
+
+
+
+
+
+
+
+
+
+
 
