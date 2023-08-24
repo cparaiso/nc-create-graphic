@@ -2,9 +2,11 @@ from typing import Dict, List
 from uuid import uuid1
 import os
 from ruamel.yaml import YAML
+from ruamel.yaml.scalarstring import DoubleQuotedScalarString
 
 COMP_PATH = os.environ['COMP_REPO']
 yaml = YAML()                       
+yaml.preserve_quotes = True
 def process_text_fields(text_fields: List) -> List[Dict]:
     '''
     process text fields 
@@ -24,8 +26,9 @@ def media_insert_text_field(fields: List[Dict], media: Dict) -> Dict:
     assets = []
 
     for field in fields:
-        assets.append(field['uuid'])
-        media['ui']['svgs'][0][f"text{field['index']}"] = field['uuid']
+        double_quoted_scalar = DoubleQuotedScalarString(field['uuid'])
+        assets.append(double_quoted_scalar)
+        media['ui']['svgs'][0][f"text{field['index']}"] = double_quoted_scalar 
     
     media['assets'] = assets
 

@@ -12,5 +12,5 @@ ui:
   svgs:
     - caption: ""
       file: ""
-  ratio: "822/861"
-  stylesheet: ""
+ratio: "822/861"
+stylesheet: ""
