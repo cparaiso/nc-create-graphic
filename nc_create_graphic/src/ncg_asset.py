@@ -72,6 +72,26 @@ def media_create() -> Dict:
 
     return media
 
+def create_fd_svg() -> str:
+    uuid = str(uuid1())
+    
+    with open('../templates/svg.yml', 'r') as f:
+        svg_yml = yaml.load(f)
+
+    dir = f"{COMP_PATH}/source/assets/{uuid}"
+    os.mkdir(dir)
+
+    svg_yml['id'] = uuid
+    svg_yml['file'] = f"{uuid}.svg"
+
+    with open(f"{dir}/{uuid}.svg", 'w') as f:
+        f.write('')
+    
+    with open(f"{dir}/{uuid}.yml", 'w') as f:
+        yaml.dump(svg_yml, f)
+
+    return DoubleQuotedScalarString(uuid)
+
 def __create_fd_text_fields(text_field: Dict) -> None:
     '''
     create directories and text files for a single text field
