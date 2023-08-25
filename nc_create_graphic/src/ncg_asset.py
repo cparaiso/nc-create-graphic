@@ -22,7 +22,7 @@ def process_text_fields(text_fields: List) -> List[Dict]:
 
     return fields_uuids
 
-def media_insert_text_field(fields: List[Dict]) -> Tuple:
+def insert_textfield_media(fields: List[Dict]) -> Tuple:
     assets = []
     ui = {} 
     for field in fields:
@@ -33,7 +33,7 @@ def media_insert_text_field(fields: List[Dict]) -> Tuple:
 
     return (assets, ui)
 
-def media_insert_css(fields: List[Dict], media_id: str) -> Tuple:
+def insert_media_css(fields: List[Dict], media_id: str) -> Tuple:
     text_fields = []
     with open('../templates/css.yml', 'r') as f:
         css_yml = yaml.load(f)
@@ -64,7 +64,7 @@ def media_insert_css(fields: List[Dict], media_id: str) -> Tuple:
 
     return css_yml['id']   
 
-def media_create() -> Dict:
+def create_media() -> Dict:
     with open('../templates/media.yml', 'r') as f:
         media = yaml.load(f)
 
@@ -132,15 +132,4 @@ def __create_fd_css(css: Dict) -> None:
         for field in text_fields:
             attrs = field['attributes']
             f.write(f'''[id="{css['containerId']}"] [id="{field['cssId']}"] {{ top: {attrs['y']}; left: {attrs['x']};size: {attrs['size']}; }}{newline}''')
-
-
-
-
-
-
-
-
-
-
-
 

@@ -12,9 +12,9 @@ if __name__ == '__main__':
         output = yaml.load(f)
 
     text_fields = asset.process_text_fields(output['textFields'])
-    media = asset.media_create()
-    media['assets'], media['ui']['svgs'][0] = asset.media_insert_text_field(text_fields)
-    media['stylesheet'] = asset.media_insert_css(text_fields, media['id'])
+    media = asset.create_media()
+    media['assets'], media['ui']['svgs'][0] = asset.insert_textfield_media(text_fields)
+    media['stylesheet'] = asset.insert_media_css(text_fields, media['id'])
     media['ui']['svgs'][0]['file'] = asset.create_fd_svg() 
 
     dir = f"{COMP_PATH}/source/medias/{media['id']}"
